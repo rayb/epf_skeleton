@@ -19,6 +19,19 @@
         end
       end
 
+      def show
+        respond_to do |format|
+          format.json do
+            @foo = Foo.find(params[:id])
+            render json: @foo
+          end
+          # format.html do
+          #   puts "in foos index"
+          #   @foos_active = true
+          # end
+        end
+      end
+
       def create
         foo = Foo.create(params[:foo])
         respond_with foo, :location => api_foo_path(foo)
