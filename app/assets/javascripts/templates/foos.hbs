@@ -1,0 +1,13 @@
+<div class="row-fluid">
+  <div class="span4">
+    <legend>Foos</legend>
+    <ul class="nav nav-pills nav-stacked">
+      {{#each foo in controller}}
+        {{name}}
+      {{/each}}
+    </ul>
+  </div>
+  <div class="span8">
+    {{ outlet }}
+  </div>
+</div>
