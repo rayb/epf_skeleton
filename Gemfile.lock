@@ -71,8 +71,8 @@ GEM
       execjs (>= 1.2)
       handlebars-source
       railties (>= 3.1)
-    ember-source (1.0.0.rc6.2)
-      handlebars-source (= 1.0.12)
+    ember-source (1.0.0.rc5)
+      handlebars-source (= 1.0.0.rc4)
     ember_script (0.0.5)
       ember_script-source (>= 0.0.2)
       execjs
@@ -113,7 +113,7 @@ GEM
       teaspoon (>= 0.5.3)
     haml (4.0.3)
       tilt
-    handlebars-source (1.0.12)
+    handlebars-source (1.0.0.rc4)
     hike (1.2.3)
     http_parser.rb (0.5.3)
     i18n (0.6.1)
@@ -252,7 +252,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   ember-rails
-  ember-source (= 1.0.0.rc6.2)
+  ember-source (= 1.0.0.rc5)
   ember_script-rails
   factory_girl_rails
   font-awesome-sass-rails (~> 3.0.2.2)
@@ -260,7 +260,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   guard-teaspoon
-  handlebars-source (= 1.0.12)
+  handlebars-source (~> 1.0.0.rc4)
   jasminerice
   jquery-rails
   launchy
