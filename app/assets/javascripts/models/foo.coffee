@@ -1,6 +1,6 @@
-App.Foo = DS.Model.extend
+App.Foo = Ep.Model.extend
 #	bars: DS.hasMany('App.Bar')
-	name: DS.attr('string')
-	number: DS.attr('number')
-	is_happy: DS.attr('boolean')
-	foo_date: DS.attr('date')
+	name: Ep.attr('string')
+	number: Ep.attr('number')
+	is_happy: Ep.attr('boolean')
+	foo_date: Ep.attr('date')
