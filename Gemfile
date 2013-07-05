@@ -65,7 +65,7 @@ group :development, :test do
   gem 'guard'
   gem 'rb-fsevent'
   gem "guard-rails"
-  gem "guard-teabag"
+  gem "guard-teaspoon"
   gem "guard-rspec"
   #gem 'guard-cucumber'
 
