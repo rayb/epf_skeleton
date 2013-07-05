@@ -11,8 +11,8 @@ gem 'jquery-rails'
 gem 'momentjs-rails'
 
 gem 'ember_script-rails'
-gem "ember-source", "1.0.0.rc6"
-gem 'handlebars-source', '1.0.0.rc4'
+gem "ember-source", "1.0.0.rc6.2"
+gem 'handlebars-source', '1.0.12'
 gem 'active_model_serializers'
 
 gem 'unicorn'
