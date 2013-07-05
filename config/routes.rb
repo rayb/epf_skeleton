@@ -13,5 +13,6 @@ EpfSkeleton::Application.routes.draw do
   end
 
   root :to => 'application#index'
+  resources :foos
 
 end
