@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require handlebars
 //= require ember
-//= require ember-data
+//= require epf
 //= require bootstrap
 //= require_self
 //= require_tree .
+
+window.App = Ember.Application.create({LOG_TRANSITIONS: true});
