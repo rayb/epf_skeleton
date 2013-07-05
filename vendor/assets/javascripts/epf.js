@@ -34,7 +34,7 @@
             var cwd = '/';
             return {
                 title: 'browser',
-                version: 'v0.8.6',
+                version: 'v0.10.12',
                 browser: true,
                 env: {},
                 argv: [],
@@ -1966,7 +1966,7 @@
                 var data = {};
                 data[root] = get(this, 'serializer').serialize(model, { includeId: true });
                 return this.ajax(this.buildURL(root), 'POST', { data: data }).then(function (json) {
-                    return Ember.run(adapter, 'didReceiveData', json, model);
+                    return Ember.run(adapter, 'didReceiveDataForCreate', json, model);
                 }, function (xhr) {
                     throw Ember.run(adapter, 'didError', xhr, model);
                 });
@@ -2022,6 +2022,16 @@
                     }
                 });
                 return result || targetModel;
+            },
+            didReceiveDataForCreate: function (data, targetModel) {
+                var result = null;
+                this.processData(data, function (model) {
+                    if (targetModel && model.isEqual(targetModel)) {
+                        result = model;
+                    }
+                });
+                set(targetModel, 'id', get(result, 'id'));
+                return result;
             },
             didReceiveDataForLoad: function (data, type, id) {
                 var result = null;
@@ -2507,8 +2517,11 @@
                     promise = adapter.deleteModel(model);
                 }
                 return promise.then(null, function (model) {
-                    shadow.set('errors', model.get('errors'));
-                    throw shadow;
+                    if (shadow) {
+                        shadow.set('errors', model.get('errors'));
+                        throw shadow;
+                    }
+                    throw model;
                 });
             },
             toStringExtension: function () {
@@ -3062,7 +3075,12 @@
                 return dest;
             },
             deleteModel: function (model) {
-                this.modelWillBecomeDirty(model);
+                if (get(model, 'isNew')) {
+                    var newModels = get(this, 'newModels');
+                    newModels.remove(model);
+                } else {
+                    this.modelWillBecomeDirty(model);
+                }
                 set(model, 'isDeleted', true);
                 this.collectionManager.modelWasDeleted(model);
                 this.belongsToManager.modelWasDeleted(model);
@@ -3151,7 +3169,7 @@
                 });
             },
             modelWillBecomeDirty: function (model) {
-                if (this._dirtyCheckingSuspended) {
+                if (this._dirtyCheckingSuspended || get(model, 'isNew')) {
                     return;
                 }
                 var shadow = this.shadows.getModel(model);
