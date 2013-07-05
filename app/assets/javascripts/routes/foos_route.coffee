@@ -1,4 +1,4 @@
 App.FoosRoute = Ember.Route.extend
 
   model: ->
-    App.Foo.find()
+    @session.load('foo', "1")
