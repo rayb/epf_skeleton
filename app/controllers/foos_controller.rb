@@ -7,9 +7,10 @@
           format.json do
             if params[:search]
               puts "params: #{params[:search]}"
-              render json: Foo.where("last_name ilike '#{params[:search]}'").limit(10)
+              render json: Foo.where("last_name ilike '#{params[:search]}'").limit(10), each_serializer: FooSerializer
             else
-              render json: Foo.limit(10)
+              render json: Foo.limit(10), 
+                each_serializer: FooSerializer
             end
           end
           format.html do
@@ -23,7 +24,8 @@
         respond_to do |format|
           format.json do
             @foo = Foo.find(params[:id])
-            render json: @foo
+            render json: @foo,
+                serializer: FooSerializer
           end
           # format.html do
           #   puts "in foos index"

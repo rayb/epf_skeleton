@@ -1,3 +1,3 @@
-#App.Store = DS.Store.extend
-#  adapter: DS.RESTAdapter
-#    namespace: 'api'
+# App.Store = Ember.Store.extend
+#   adapter: Ember.RESTAdapter
+#   namespace: 'api'
