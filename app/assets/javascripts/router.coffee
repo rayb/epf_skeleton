@@ -3,5 +3,5 @@ App.Router.reopen
   rootURL: '/'
 
 App.Router.map ->
-  @resource 'foos', path: '/'
-
+  @resource 'foos', path: '/', ->
+#    @resource 'foo', path: '/:foo_id'
