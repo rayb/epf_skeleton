@@ -7,10 +7,10 @@ App.FoosNewController = Ember.ObjectController.extend()
 #    @get('model').get('transaction').commit()
 
   # COULD YOU ALSO CALL didCreate
-  transition_after_save: ( ->
-    console.log 'transitionAfterSave'
-    @transitionToRoute "foo", @get("content")  if @get("content.id")
-  ).observes("content.id")
+#  transition_after_save: ( ->
+#    console.log 'transitionAfterSave'
+#    @transitionToRoute "foo", @get("content")  if @get("content.id")
+#  ).observes("content.id")
 
   cancel: ->
     @transitionToRoute "foos"
