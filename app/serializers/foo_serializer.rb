@@ -3,5 +3,6 @@ class FooSerializer < ActiveModel::Serializer
 	attributes :id,
 							:name,
 							:age,
-              :power
+              :power,
+              :client_id
 end
