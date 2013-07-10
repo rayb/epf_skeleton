@@ -1,0 +1,28 @@
+@import "bootstrap";
+@import "font-awesome";
+
+body { padding-top: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Verdana";
+}
+.form_span {
+  float: left;
+  width: 30%;
+}
+.brand.active { font-weight: bold; }
+
+.search_form {
+  background-color: yellow;
+  vertical-align: text-bottom;
+}
+.right_button {
+  float: right;
+  vertical-align: middle;
+}
+.padded_button {
+  margin-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
