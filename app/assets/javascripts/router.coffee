@@ -4,7 +4,7 @@ App.Router.reopen
 
 App.Router.map ->
   @resource 'foos', path: '/', ->
-#  @resource 'foo', path: '/:foo_id'
-  @resource 'foo', path: ':foo_id', ->
-    @route 'index'
+    @route 'new',
+    @resource 'foo', path: ':foo_id', ->
+      @route 'index'
 
