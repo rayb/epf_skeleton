@@ -7,4 +7,5 @@ App.Router.map ->
     @route 'new',
     @resource 'foo', path: ':foo_id', ->
       @route 'index'
+      @route 'edit'
 

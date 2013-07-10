@@ -1,4 +1,11 @@
- {{#linkTo "foo.index" foo}}
+{{#if is_editing}}
+
+  <button {{action delete_foo foo }} class="btn btn-action btn-mini right_button"><i class="icon-remove"></i></button>
+
+  <button {{#linkTo "foo.edit" foo class="btn btn-action btn-mini right_button" }} <i class="icon-edit"></i></button> {{/linkTo}}
+{{/if}}
+
+{{#linkTo "foo.index" foo}}
   {{foo.name}}  {{ foo.age}} : {{foo.id }}  {{ foo.power }}
 {{/linkTo}}
 
