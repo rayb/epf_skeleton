@@ -1,10 +1,11 @@
 App.FoosNewController = Ember.ObjectController.extend()
 
-  save: ->
-    console.log "saving new foo"
-    alert 'why arent we getting this'
-    @session.flush()
-#    @get('model').get('transaction').commit()
+#  save: ->
+##    WHY DOENS'T SAVE WORK HERE
+#    console.log "saving new foo"
+#    alert 'why arent we getting this'
+#    @session.flush()
+##    @get('model').get('transaction').commit()
 
   # COULD YOU ALSO CALL didCreate
 #  transition_after_save: ( ->
