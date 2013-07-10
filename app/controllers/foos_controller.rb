@@ -38,7 +38,9 @@
         name = params[:foo][:name]
         age = params[:foo][:age]
         power = params[:foo][:power]
-        respond_with Foo.create(name: name, age: age, power: power)
+        foo =  Foo.create(name: name, age: age, power: power)
+        foo.client_id = params[:foo][:client_id]
+        respond_with foo
         #respond_with foo, :location => api_foo_path(foo)
       end
 
