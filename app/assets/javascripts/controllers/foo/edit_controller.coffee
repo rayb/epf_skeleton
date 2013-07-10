@@ -1,19 +1,28 @@
 App.FooEditController = Ember.ObjectController.extend
 
   init: ->
+    @childSession = @session.newSession()
     console.log "foo controller edit init"
 
   save: ->
+    alert @get('content').id
     console.log "saving edited foo"
     model = @get('model')
 #    foo_date = new Date($("#datepicker").val())
 #    model.set('foo_date', foo_date)
 #    model.get('transaction').commit()
-    @session.flush()
+    @childSession.flush()
     @transitionToRoute "foo.index", @get('model')
 
   cancel: ->
     @transitionToRoute "foos"
+
+#  THIS ONE IS CALLED WHEN THE ID COMES THROUGH
+#  transition_after_save: ( ->
+#    alert @get('id')
+#  ).observes("content.id")
+
+
 
 #  addBaz: (baz) ->
 #    console.log "adding a baz to foobaz for foo"
