@@ -5,6 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-dan = Foo.find_or_create_by_name_and_number("dan", 42)
-ray = Foo.find_or_create_by_name_and_number("ray", 1)
+dan = Foo.find_or_create_by_name_and_age_and_power("dan", 42, 'thunder')
+ray = Foo.find_or_create_by_name_and_age_and_power("ray", 13, 'lightning')
 

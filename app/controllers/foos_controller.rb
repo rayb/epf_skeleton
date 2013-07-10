@@ -35,8 +35,11 @@
       end
 
       def create
-        foo = Foo.create(params[:foo])
-        respond_with foo, :location => api_foo_path(foo)
+        name = params[:foo][:name]
+        age = params[:foo][:age]
+        power = params[:foo][:power]
+        respond_with Foo.create(name: name, age: age, power: power)
+        #respond_with foo, :location => api_foo_path(foo)
       end
 
       def update
