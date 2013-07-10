@@ -1,8 +1,5 @@
-class Post
-class Comment
-
-
-
+#class Post
+#class Comment
 # inside post.
-Post.reopen
- asdasd
+#Post.reopen
+# asdasd
