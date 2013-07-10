@@ -1,8 +1,15 @@
 App.FooEditController = Ember.ObjectController.extend
 
   init: ->
+    alert 'foo edit init'
     @childSession = @session.newSession()
     console.log "foo controller edit init"
+
+  adoptFoo: (foo) ->
+    alert 'adopting foo'
+    alert foo
+    @childSession.add(foo)
+    @realFoo = foo
 
   save: ->
     alert @get('content').id
@@ -12,10 +19,23 @@ App.FooEditController = Ember.ObjectController.extend
 #    model.set('foo_date', foo_date)
 #    model.get('transaction').commit()
     @childSession.flush()
+    @stopEditing()
     @transitionToRoute "foo.index", @get('model')
 
   cancel: ->
+    alert 'we are in foo edit controller cancel'
+    @stopEditing()
     @transitionToRoute "foos"
+
+  stopEditing: ->
+    alert 'we are in stop editing'
+    @childSession = null if @childSession
+    shadow = @session.getShadow(@realFoo)  if @realFoo
+    alert shadow.get('name')  if @realFoo
+    @set('content', shadow)
+    @realFoo = null
+#   WHAT TO DO HERE TO RESET THINGS
+
 
 #  THIS ONE IS CALLED WHEN THE ID COMES THROUGH
 #  transition_after_save: ( ->

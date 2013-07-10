@@ -1,6 +1,11 @@
 App.FoosNewRoute = Ember.Route.extend
 
+#  init: ->
+#    alert 'init foos route'
+#    @childSession = @session.newSession()
+
   model: ->
+#    @childSession = @session.newSession()
     foo = @session.create App.Foo
     foo
 #  deactivate: ->
