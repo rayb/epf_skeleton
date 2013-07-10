@@ -15,6 +15,6 @@ EpfSkeleton::Application.routes.draw do
   root :to => 'application#index'
   resources :foos
 
-  get '*asd', :to => 'application#index'
+  #get '*asd', :to => 'application#index'
 
 end
