@@ -1,11 +1,15 @@
 <div class="row-fluid">
   <div class="span4">
-    <legend>Foos</legend>
+    <legend>Foos
+        <button {{action toggleProperty 'is_editing' }} class="btn btn-action btn-mini right_button"><i class="icon-edit"></i></button>
+    </legend>
+
     <ul class="nav nav-pills nav-stacked">
       {{#each foo in content}}
-        {{foo.name}}
+        {{view App.FooInListView contentBinding="foo"}}
       {{/each}}
     </ul>
+
   </div>
   <div class="span8">
     {{ outlet }}
