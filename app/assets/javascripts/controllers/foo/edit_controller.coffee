@@ -30,10 +30,11 @@ App.FooEditController = Ember.ObjectController.extend
   stopEditing: ->
     alert 'we are in stop editing'
     @childSession = null if @childSession
-    shadow = @session.getShadow(@realFoo)  if @realFoo
-    alert shadow.get('name')  if @realFoo
-    @set('content', shadow)
-    @realFoo = null
+    @session.refresh(@realFoo)
+#    shadow = @session.getShadow(@realFoo)  if @realFoo
+#    alert shadow.get('name')  if @realFoo
+#    @set('content', shadow)
+#    @realFoo = null
 #   WHAT TO DO HERE TO RESET THINGS
 
 
