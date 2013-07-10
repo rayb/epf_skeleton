@@ -19,13 +19,4 @@
 //= require_self
 //= require_tree .
 
-window.App = Ember.Application.create({LOG_TRANSITIONS: true,
-    resolver: Ember.DefaultResolver.extend({
-        resolveModel: function(parsedName) {
-           var className = Ember.String.classify(parsedName.name);
-           var factory = Ember.get(parsedName.root, className);
-           return factory;
-        }
-    })
-
-});
+window.App = Ember.Application.create({LOG_TRANSITIONS: true});
