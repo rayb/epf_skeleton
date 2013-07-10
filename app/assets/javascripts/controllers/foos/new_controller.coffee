@@ -2,6 +2,7 @@ App.FoosNewController = Ember.ObjectController.extend()
 
   save: ->
     console.log "saving new foo"
+    alert 'why arent we getting this'
     @session.flush()
 #    @get('model').get('transaction').commit()
 
