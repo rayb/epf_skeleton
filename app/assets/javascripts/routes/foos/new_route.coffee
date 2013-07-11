@@ -17,5 +17,8 @@ App.FoosNewRoute = Ember.Route.extend
     save: ->
       promise = @session.flush()
       promise.then (foo) ->
-        @transitionToRoute "foo", 34
+        debugger
+#        alert foo
+#        @transitionToRoute "foo", foo
+        @transitionToRoute "foos"
       promise
