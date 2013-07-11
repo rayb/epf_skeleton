@@ -6,8 +6,8 @@ App.FoosNewRoute = Ember.Route.extend
 
   model: ->
 #    @childSession = @session.newSession()
-    foo = @session.create App.Foo
-    foo
+    @session.create App.Foo
+
 #  deactivate: ->
 #    model = @currentModel
 #    model.get("transaction").rollback()  unless model.get("isSaving")
