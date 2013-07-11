@@ -1,7 +1,7 @@
 App.FooEditController = Ember.ObjectController.extend
 
   init: ->
-    alert 'foo edit init'
+#    alert 'foo edit init'
     @childSession = @session.newSession()
 #    console.log "foo controller edit init"
 
@@ -9,7 +9,7 @@ App.FooEditController = Ember.ObjectController.extend
     @childSession = @session.newSession() unless @childSession
 
 #    alert 'adopting foo'
-    alert foo
+#    alert foo
     @childSession.add(foo)
 #    @realFoo = foo
 
@@ -32,7 +32,7 @@ App.FooEditController = Ember.ObjectController.extend
   stopEditing: ->
     if @childSession
       @childSession = null
-      alert 'we are in stop editing'
+#      alert 'we are in stop editing'
 #      alert @realFoo.get('name')
       #@session.refresh(@realFoo)
 #      shadow = @session.getShadow(@realFoo)  if @realFoo
