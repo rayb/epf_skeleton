@@ -35,11 +35,14 @@
       end
 
       def create
-        name = params[:foo][:name]
-        age = params[:foo][:age]
-        power = params[:foo][:power]
-        foo =  Foo.create(name: name, age: age, power: power)
-        foo.client_id = params[:foo][:client_id]
+        #name = params[:foo][:name]
+        #age = params[:foo][:age]
+        #power = params[:foo][:power]
+        client_id = params[:foo][:client_id]
+        input = params[:foo].except(:client_id)
+        p input
+        foo =  Foo.create(input)
+        foo.client_id = client_id
         respond_with foo
         #respond_with foo, :location => api_foo_path(foo)
       end
