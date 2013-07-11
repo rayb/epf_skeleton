@@ -3,16 +3,18 @@ App.FooEditController = Ember.ObjectController.extend
   init: ->
     alert 'foo edit init'
     @childSession = @session.newSession()
-    console.log "foo controller edit init"
+#    console.log "foo controller edit init"
 
   adoptFoo: (foo) ->
-    alert 'adopting foo'
+    @childSession = @session.newSession() unless @childSession
+
+#    alert 'adopting foo'
     alert foo
     @childSession.add(foo)
-    @realFoo = foo
+#    @realFoo = foo
 
   save: ->
-    alert @get('content').id
+#    alert @get('content').id
     console.log "saving edited foo"
     model = @get('model')
 #    foo_date = new Date($("#datepicker").val())
@@ -23,19 +25,21 @@ App.FooEditController = Ember.ObjectController.extend
     @transitionToRoute "foo.index", @get('model')
 
   cancel: ->
-    alert 'we are in foo edit controller cancel'
+#    alert 'we are in foo edit controller cancel'
     @stopEditing()
     @transitionToRoute "foos"
 
   stopEditing: ->
-    alert 'we are in stop editing'
-    @childSession = null if @childSession
-    @session.refresh(@realFoo)
-#    shadow = @session.getShadow(@realFoo)  if @realFoo
-#    alert shadow.get('name')  if @realFoo
-#    @set('content', shadow)
-#    @realFoo = null
-#   WHAT TO DO HERE TO RESET THINGS
+    if @childSession
+      @childSession = null
+      alert 'we are in stop editing'
+#      alert @realFoo.get('name')
+      #@session.refresh(@realFoo)
+#      shadow = @session.getShadow(@realFoo)  if @realFoo
+#      alert shadow.get('name')  if @realFoo
+  #    @set('content', shadow)
+  #    @realFoo = null
+  #   WHAT TO DO HERE TO RESET THINGS
 
 
 #  THIS ONE IS CALLED WHEN THE ID COMES THROUGH
