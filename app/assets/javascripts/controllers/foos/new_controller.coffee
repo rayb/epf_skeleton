@@ -1,14 +1,14 @@
 App.FoosNewController = Ember.ObjectController.extend
 
-  transitionToFoos: ->
+  save: ->
+    @session.flush()
+
+  cancel: ->
     @transitionToRoute "foos"
 
   transition_after_save: ( ->
     @transitionToRoute "foo", @get("content")  if @get("content.id")
   ).observes("content.id")
-
-  save: ->
-    @session.flush()
 
 # QUESTION FOR GORDON
 #      @childSession.flush().then ((foo) ->
@@ -17,3 +17,4 @@ App.FoosNewController = Ember.ObjectController.extend
 #        alert foo
 #      ), (models) ->
 #        alert 'something went wrong'
+
