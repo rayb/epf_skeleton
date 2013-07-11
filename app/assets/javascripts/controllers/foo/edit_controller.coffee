@@ -1,37 +1,27 @@
 App.FooEditController = Ember.ObjectController.extend
 
-  init: ->
-#    alert 'foo edit init'
-    @childSession = @session.newSession()
-#    console.log "foo controller edit init"
-
   adoptFoo: (foo) ->
     @childSession = @session.newSession() unless @childSession
-
-#    alert 'adopting foo'
-#    alert foo
     @childSession.add(foo)
-#    @realFoo = foo
 
   save: ->
-#    alert @get('content').id
-    console.log "saving edited foo"
-    model = @get('model')
+    @childSession.flush()
+    @transitionToRoute "foo.index", @get('model')
+#   FUTURE DATE HANDLING ???
+#    model = @get('model')
 #    foo_date = new Date($("#datepicker").val())
 #    model.set('foo_date', foo_date)
-#    model.get('transaction').commit()
-    @childSession.flush()
-    @stopEditing()
-    @transitionToRoute "foo.index", @get('model')
 
   cancel: ->
-#    alert 'we are in foo edit controller cancel'
-    @stopEditing()
     @transitionToRoute "foos"
 
-  stopEditing: ->
-    if @childSession
-      @childSession = null
+
+
+
+
+
+
+
 #      alert 'we are in stop editing'
 #      alert @realFoo.get('name')
       #@session.refresh(@realFoo)
