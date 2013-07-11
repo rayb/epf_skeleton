@@ -1,24 +1,22 @@
 App.FoosNewRoute = Ember.Route.extend
 
-#  init: ->
-#    alert 'init foos route'
-#    @childSession = @session.newSession()
-
   model: ->
-#    @childSession = @session.newSession()
     @session.create App.Foo
 
-#  deactivate: ->
-#    model = @currentModel
-#    model.get("transaction").rollback()  unless model.get("isSaving")
-
-
   events:
+
+    cancel: ->
+      @controllerFor('foosNew').transitionToFoos()
+
     save: ->
-      promise = @session.flush()
-      promise.then (foo) ->
-        debugger
-#        alert foo
-#        @transitionToRoute "foo", foo
-        @transitionToRoute "foos"
-      promise
+      @session.flush()
+
+
+# QUESTION FOR GORDON
+#      @childSession.flush().then ((foo) ->
+#        # this will be reached if the flush is successful
+#        # why will alert work to show object, but get id is undefined
+#        alert foo.id
+#      ), (models) ->
+#        alert 'something went wrong'
+
