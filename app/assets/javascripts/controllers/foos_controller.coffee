@@ -5,10 +5,7 @@ App.FoosController = Ember.ArrayController.extend
 
   is_editing: false
 
-#  init: ->
-#    console.log "foos controller init"
-
-  delete_foo: (foo) ->
+  deleteFoo: (foo) ->
     name = foo.get('name')
     if window.confirm("Are you sure you want to delete foo: #{name}?")
       @session.deleteModel foo
