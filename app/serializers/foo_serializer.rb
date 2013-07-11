@@ -4,5 +4,6 @@ class FooSerializer < ActiveModel::Serializer
 							:name,
 							:age,
               :power,
-              :client_id
+              :client_id,
+              :is_happy
 end
