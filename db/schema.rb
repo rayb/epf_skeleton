@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710060024) do
+ActiveRecord::Schema.define(:version => 20130712024510) do
+
+  create_table "bars", :force => true do |t|
+    t.string   "name"
+    t.integer  "foo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bars", ["foo_id"], :name => "index_bars_on_foo_id"
 
   create_table "foos", :force => true do |t|
     t.string   "name"
