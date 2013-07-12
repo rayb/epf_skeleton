@@ -1,6 +1,7 @@
 class FooSerializer < ActiveModel::Serializer
   embed :ids
-	attributes :id,
+  has_many :bars
+  attributes :id,
 							:name,
 							:age,
               :power,
