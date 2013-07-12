@@ -1,5 +1,5 @@
 class FooSerializer < ActiveModel::Serializer
-  embed :ids
+  embed :ids, include: true
   has_many :bars
   attributes :id,
 							:name,
