@@ -7,7 +7,7 @@ App.FooEditRoute = Ember.Route.extend
     foo
 
 #  deactivate: ->
-##    alert 'we are in deactivate on foo edit route'
+#    alert 'we are in deactivate on foo edit route'
 #    fooEdit = @controllerFor('fooEdit')
 #    fooEdit.stopEditing()
 #    model = @currentModel
