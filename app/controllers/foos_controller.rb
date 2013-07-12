@@ -35,9 +35,6 @@
       end
 
       def create
-        #name = params[:foo][:name]
-        #age = params[:foo][:age]
-        #power = params[:foo][:power]
         client_id = params[:foo][:client_id]
         input = params[:foo].except(:client_id)
         p input
