@@ -8,3 +8,5 @@
 dan = Foo.find_or_create_by_name_and_age_and_power("dan", 42, 'thunder')
 ray = Foo.find_or_create_by_name_and_age_and_power("ray", 13, 'lightning')
 
+dan.update_attributes( is_happy: true)
+ray.update_attributes( is_happy: false)
