@@ -21,26 +21,13 @@
       end
 
       def show
-        respond_to do |format|
-          format.json do
-            @foo = Foo.find(params[:id])
-            render json: @foo,
-                serializer: FooSerializer
-          end
-          # format.html do
-          #   puts "in foos index"
-          #   @foos_active = true
-          # end
-        end
+        @foo = Foo.find(params[:id])
+        render json: @foo, serializer: FooSerializer
       end
 
       def create
-        #name = params[:foo][:name]
-        #age = params[:foo][:age]
-        #power = params[:foo][:power]
         client_id = params[:foo][:client_id]
         input = params[:foo].except(:client_id)
-        p input
         foo =  Foo.create(input)
         foo.client_id = client_id
         respond_with foo
