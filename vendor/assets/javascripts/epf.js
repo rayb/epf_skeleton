@@ -6,14 +6,14 @@
         if (!resolved)
             throw new Error('Failed to resolve module ' + file);
         var module$ = {
-            id: file,
-            require: require,
-            filename: file,
-            exports: {},
-            loaded: false,
-            parent: parentModule,
-            children: []
-        };
+                id: file,
+                require: require,
+                filename: file,
+                exports: {},
+                loaded: false,
+                parent: parentModule,
+                children: []
+            };
         if (parentModule)
             parentModule.children.push(module$);
         var dirname = file.slice(0, file.lastIndexOf('/') + 1);
@@ -31,31 +31,30 @@
         require.modules[file] = fn;
     };
     var process = function () {
-        var cwd = '/';
-        return {
-            title: 'browser',
-            version: 'v0.8.6',
-            browser: true,
-            env: {},
-            argv: [],
-            nextTick: global.setImmediate || function (fn) {
-                setTimeout(fn, 0);
-            },
-            cwd: function () {
-                return cwd;
-            },
-            chdir: function (dir) {
-                cwd = dir;
-            }
-        };
-    }();
+            var cwd = '/';
+            return {
+                title: 'browser',
+                version: 'v0.10.12',
+                browser: true,
+                env: {},
+                argv: [],
+                nextTick: global.setImmediate || function (fn) {
+                    setTimeout(fn, 0);
+                },
+                cwd: function () {
+                    return cwd;
+                },
+                chdir: function (dir) {
+                    cwd = dir;
+                }
+            };
+        }();
     require.define('/lib/index.js', function (module, exports, __dirname, __filename) {
         global.Ep = Ember.Namespace.create();
         require('/lib/initializer.js', module);
         require('/lib/model/index.js', module);
         require('/lib/session/index.js', module);
         require('/lib/serializer/index.js', module);
-        require('/lib/session/index.js', module);
         require('/lib/local/index.js', module);
         require('/lib/rest/index.js', module);
     });
@@ -352,28 +351,28 @@
                 serialize: function (date) {
                     if (date instanceof Date) {
                         var days = [
-                            'Sun',
-                            'Mon',
-                            'Tue',
-                            'Wed',
-                            'Thu',
-                            'Fri',
-                            'Sat'
-                        ];
+                                'Sun',
+                                'Mon',
+                                'Tue',
+                                'Wed',
+                                'Thu',
+                                'Fri',
+                                'Sat'
+                            ];
                         var months = [
-                            'Jan',
-                            'Feb',
-                            'Mar',
-                            'Apr',
-                            'May',
-                            'Jun',
-                            'Jul',
-                            'Aug',
-                            'Sep',
-                            'Oct',
-                            'Nov',
-                            'Dec'
-                        ];
+                                'Jan',
+                                'Feb',
+                                'Mar',
+                                'Apr',
+                                'May',
+                                'Jun',
+                                'Jul',
+                                'Aug',
+                                'Sep',
+                                'Oct',
+                                'Nov',
+                                'Dec'
+                            ];
                         var pad = function (num) {
                             return num < 10 ? '0' + num : '' + num;
                         };
@@ -392,14 +391,14 @@
     require.define('/lib/ext/date.js', function (module, exports, __dirname, __filename) {
         Ember.Date = Ember.Date || {};
         var origParse = Date.parse, numericKeys = [
-            1,
-            4,
-            5,
-            6,
-            7,
-            10,
-            11
-        ];
+                1,
+                4,
+                5,
+                6,
+                7,
+                10,
+                11
+            ];
         Ember.Date.parse = function (date) {
             var timestamp, struct, minutesOffset = 0;
             if (struct = /^(\d{4}|[+\-]\d{6})(?:-(\d{2})(?:-(\d{2}))?)?(?:T(\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{3}))?)?(?:(Z)|([+\-])(\d{2})(?::(\d{2}))?)?)?$/.exec(date)) {
@@ -676,10 +675,10 @@
             keyFor: function (description) {
                 var type = description.parentType, name = description.key;
                 switch (description.kind) {
-                    case 'belongsTo':
-                        return this._keyForBelongsTo(type, name);
-                    case 'hasMany':
-                        return this._keyForHasMany(type, name);
+                case 'belongsTo':
+                    return this._keyForBelongsTo(type, name);
+                case 'hasMany':
+                    return this._keyForHasMany(type, name);
                 }
             },
             _keyForHasMany: function (type, name) {
@@ -706,14 +705,14 @@
             },
             registerEnumTransform: function (type, objects) {
                 var transform = {
-                    deserialize: function (serialized) {
-                        return Ember.A(objects).objectAt(serialized);
-                    },
-                    serialize: function (deserialized) {
-                        return Ember.EnumerableUtils.indexOf(objects, deserialized);
-                    },
-                    values: objects
-                };
+                        deserialize: function (serialized) {
+                            return Ember.A(objects).objectAt(serialized);
+                        },
+                        serialize: function (deserialized) {
+                            return Ember.EnumerableUtils.indexOf(objects, deserialized);
+                        },
+                        values: objects
+                    };
                 this.registerTransform(type, transform);
             },
             map: function (type, mappings) {
@@ -1017,10 +1016,10 @@
             },
             relationships: Ember.computed(function () {
                 var map = new Ember.MapWithDefault({
-                    defaultValue: function () {
-                        return [];
-                    }
-                });
+                        defaultValue: function () {
+                            return [];
+                        }
+                    });
                 this.eachComputedProperty(function (name, meta) {
                     if (meta.isRelationship) {
                         if (typeof meta.type === 'string') {
@@ -1037,9 +1036,9 @@
             }),
             relationshipNames: Ember.computed(function () {
                 var names = {
-                    hasMany: [],
-                    belongsTo: []
-                };
+                        hasMany: [],
+                        belongsTo: []
+                    };
                 this.eachComputedProperty(function (name, meta) {
                     if (meta.isRelationship) {
                         names[meta.kind].push(name);
@@ -1137,11 +1136,11 @@
             Ember.assert('The type passed to Ep.hasMany must be defined', !!type);
             options = options || {};
             var meta = {
-                type: type,
-                isRelationship: true,
-                options: options,
-                kind: 'hasMany'
-            };
+                    type: type,
+                    isRelationship: true,
+                    options: options,
+                    kind: 'hasMany'
+                };
             return Ember.computed(function (key, value, cached) {
                 var content;
                 if (arguments.length === 1) {
@@ -1649,11 +1648,11 @@
             Ember.assert('The type passed to Ep.belongsTo must be defined', !!type);
             options = options || {};
             var meta = {
-                type: type,
-                isRelationship: true,
-                options: options,
-                kind: 'belongsTo'
-            };
+                    type: type,
+                    isRelationship: true,
+                    options: options,
+                    kind: 'belongsTo'
+                };
             return Ember.computed(function (key, value) {
                 if (arguments.length === 1) {
                     return null;
@@ -1747,10 +1746,10 @@
         Ep.attr = function (type, options) {
             options = options || {};
             var meta = {
-                type: type,
-                isAttribute: true,
-                options: options
-            };
+                    type: type,
+                    isAttribute: true,
+                    options: options
+                };
             return Ember.computed(function (key, value, oldValue) {
                 if (arguments.length > 1) {
                     Ember.assert('You may not set `id` as an attribute on your model. Please remove any lines that look like: `id: Ep.attr(\'<type>\')` from ' + this.constructor.toString(), key !== 'id');
@@ -1893,11 +1892,11 @@
             type = get(modelOrPromise, 'type') || type;
             session = get(modelOrPromise, 'session') || session;
             var promise = Ep.ModelPromise.create({
-                id: id,
-                clientId: clientId,
-                type: type,
-                session: session
-            });
+                    id: id,
+                    clientId: clientId,
+                    type: type,
+                    session: session
+                });
             if (typeof modelOrPromise.then !== 'function') {
                 promise.resolve(modelOrPromise);
             } else {
@@ -1930,9 +1929,9 @@
                     return Ember.run(adapter, 'didReceiveDataForLoad', json, type, id);
                 }, function (xhr) {
                     var model = Ep.LoadError.create({
-                        id: id,
-                        type: type
-                    });
+                            id: id,
+                            type: type
+                        });
                     throw Ember.run(adapter, 'didError', xhr, model);
                 });
             },
@@ -2094,15 +2093,15 @@
             flush: function (session) {
                 var models = get(session, 'dirtyModels').copy(true);
                 var shadows = Ep.ModelSet.fromArray(models.map(function (model) {
-                    return session.shadows.getModel(model);
-                }));
+                        return session.shadows.getModel(model);
+                    }));
                 this.dirtyEmbedded(models, shadows, session);
                 this.materializeRelationships(models);
                 var op = Ep.OperationGraph.create({
-                    models: models,
-                    shadows: shadows,
-                    adapter: this
-                });
+                        models: models,
+                        shadows: shadows,
+                        adapter: this
+                    });
                 return this._performFlush(op);
             },
             _performFlush: function (op) {
@@ -2745,10 +2744,10 @@
             return function (key, value) {
                 var meta = getMappableMeta(this);
                 var map = meta[mapName] || Ember.MapWithDefault.create({
-                    defaultValue: function () {
-                        return {};
-                    }
-                });
+                        defaultValue: function () {
+                            return {};
+                        }
+                    });
                 transform.call(this, key, value, map);
                 meta[mapName] = map;
             };
@@ -2816,9 +2815,9 @@
                 var session = this;
                 return this.parent.query(type, query).then(function (models) {
                     var merged = Ep.ModelArray.create({
-                        session: session,
-                        content: []
-                    });
+                            session: session,
+                            content: []
+                        });
                     set(merged, 'meta', get(models, 'meta'));
                     models.forEach(function (model) {
                         merged.addObject(session.merge(model));
@@ -2841,16 +2840,16 @@
                     parent.update(model);
                 });
                 var promise = parent.flush().then(function (models) {
-                    var res = models.map(function (model) {
-                        return session.merge(model);
+                        var res = models.map(function (model) {
+                                return session.merge(model);
+                            });
+                        return models;
+                    }, function (models) {
+                        var res = models.map(function (model) {
+                                return session.merge(model);
+                            });
+                        throw models;
                     });
-                    return models;
-                }, function (models) {
-                    var res = models.map(function (model) {
-                        return session.merge(model);
-                    });
-                    throw models;
-                });
                 dirtyModels.forEach(function (model) {
                     this.shadows.add(model.copy());
                 }, this);
@@ -2878,7 +2877,7 @@
         var get = Ember.get, set = Ember.set;
         Ep.Session.reopen({
             merge: function (model, strategy) {
-                var shadows = get(this, 'shadows'), newModels = get(this, 'newModels');
+                var models = get(this, 'models'), shadows = get(this, 'shadows'), newModels = get(this, 'newModels');
                 this.reifyClientId(model);
                 if (!strategy)
                     strategy = get(this, 'mergeStrategy').create({ session: this });
@@ -2887,10 +2886,15 @@
                     this.suspendDirtyChecking(function () {
                         merged = this.mergeModel(model, strategy);
                     }, this);
-                    if (shadows.contains(model) && get(model, 'isLoaded')) {
-                        shadows.add(model);
+                    if (get(model, 'isDeleted')) {
+                        models.remove(model);
+                        shadows.remove(model);
+                    } else {
+                        if (shadows.contains(model) && get(model, 'isLoaded')) {
+                            shadows.add(model);
+                        }
+                        newModels.remove(model);
                     }
-                    newModels.remove(model);
                 } else {
                     this.suspendDirtyChecking(function () {
                         merged = this.mergeErrors(model, strategy);
@@ -3030,13 +3034,13 @@
                     } else if (relationship.kind === 'hasMany') {
                         var children = get(model, name);
                         var copied = children.map(function (child) {
-                            if (depth >= 0 || get(child, 'isDetached') || get(child, 'isNew')) {
-                                child = this.add(child, depth);
-                            } else {
-                                child = child.lazyCopy();
-                            }
-                            return child;
-                        }, this);
+                                if (depth >= 0 || get(child, 'isDetached') || get(child, 'isNew')) {
+                                    child = this.add(child, depth);
+                                } else {
+                                    child = child.lazyCopy();
+                                }
+                                return child;
+                            }, this);
                         set(dest, name, copied);
                     }
                 }, this);
@@ -3116,9 +3120,9 @@
                 var session = this;
                 return this.adapter.query(type, query).then(function (models) {
                     var merged = Ep.ModelArray.create({
-                        session: session,
-                        content: []
-                    });
+                            session: session,
+                            content: []
+                        });
                     set(merged, 'meta', get(models, 'meta'));
                     models.forEach(function (model) {
                         merged.addObject(session.merge(model));
@@ -3137,16 +3141,16 @@
             flush: function () {
                 var session = this, dirtyModels = get(this, 'dirtyModels'), shadows = get(this, 'shadows');
                 var promise = this.adapter.flush(this).then(function (models) {
-                    var res = models.map(function (model) {
-                        return session.merge(model);
+                        var res = models.map(function (model) {
+                                return session.merge(model);
+                            });
+                        return res;
+                    }, function (models) {
+                        var res = models.map(function (model) {
+                                return session.merge(model);
+                            });
+                        throw res;
                     });
-                    return res;
-                }, function (models) {
-                    var res = models.map(function (model) {
-                        return session.merge(model);
-                    });
-                    throw res;
-                });
                 dirtyModels.forEach(function (model) {
                     this.shadows.add(model.copy());
                 }, this);
@@ -3193,8 +3197,8 @@
             },
             dirtyModels: Ember.computed(function () {
                 var models = Ep.ModelSet.fromArray(this.shadows.map(function (model) {
-                    return this.models.getModel(model);
-                }, this));
+                        return this.models.getModel(model);
+                    }, this));
                 get(this, 'newModels').forEach(function (model) {
                     models.add(model);
                 });
@@ -3386,8 +3390,8 @@
             register: function (parent, key, model) {
                 var paths = this.modelMap.get(get(model, 'clientId'));
                 var path = paths.find(function (p) {
-                    return p.parent.isEqual(parent) && p.key === key;
-                });
+                        return p.parent.isEqual(parent) && p.key === key;
+                    });
                 if (path)
                     return;
                 path = {
@@ -3399,8 +3403,8 @@
             unregister: function (parent, key, model) {
                 var paths = this.modelMap.get(get(model, 'clientId'));
                 var path = paths.find(function (p) {
-                    return p.parent.isEqual(parent) && p.key === key;
-                });
+                        return p.parent.isEqual(parent) && p.key === key;
+                    });
                 paths.removeObject(path);
                 if (paths.length === 0) {
                     this.modelMap.remove(get(model, 'clientId'));
@@ -3480,5 +3484,5 @@
     global.epf = require('/lib/index.js');
 }.call(this, this));
 /*
- //@ sourceMappingURL=eps.js.map
- */
+//@ sourceMappingURL=eps.js.map
+*/
