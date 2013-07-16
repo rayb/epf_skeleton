@@ -1,10 +1,19 @@
 App.FooEditRoute = Ember.Route.extend
 
   model: ->
-    foo = @modelFor "foo"
-    fooEdit = @controllerFor('fooEdit')
-    fooEdit.adoptFoo(foo)
-    foo
+    @modelFor "foo"
+
+#alternative way
+#  afterModel: (model, transition) ->
+#    childSession = @session.newSession()
+#    childModel = childSession.add(model)
+#    transition.resolvedModels['foo'] = childModel
+
+  setupController: (controller, model) ->
+    childSession = @session.newSession()
+    childModel = childSession.add(model)
+    controller.set('model', childModel)
+
 
 #  deactivate: ->
 ##    alert 'we are in deactivate on foo edit route'
