@@ -1,20 +1,22 @@
 App.FoosNewController = Ember.ObjectController.extend
+  needs: ['foos']
 
   save: ->
-    @session.flush()
+    controller = this
+    @session.flush().then ->
+      foo = controller.get('content')
+      controller.get('controllers.foos').content.pushObject(foo)
+      controller.transitionToRoute "foo", foo
 
   cancel: ->
     @transitionToRoute "foos"
-
-  transition_after_save: ( ->
-    @transitionToRoute "foo", @get("content")  if @get("content.id")
-  ).observes("content.id")
 
 # QUESTION FOR GORDON
 #      @childSession.flush().then ((foo) ->
 #        # this will be reached if the flush is successful
 #        # why will alert work to show object, but get id is undefined
 #        alert foo
-#      ), (models) ->
+#      ), (foo) ->
 #        alert 'something went wrong'
+#        foo.get('errors')
 
