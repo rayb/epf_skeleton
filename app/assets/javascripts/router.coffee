@@ -12,4 +12,5 @@ App.Router.map ->
         @route 'new',
         @resource 'bar', path: ':bar_id', ->
           @route 'index'
+          @route 'edit'
 
