@@ -8,7 +8,14 @@ Epf's greatest strength is robustness. It provides a truly viable data foundatio
 
 See [epf](https://github.com/GroupTalent/epf) for more info.
 
-(epf_skeleton) is a practical complement to the existing epf documentation. It primarily shows:
+## Getting Started
+
+By default edit mode is turned off and you can only add new objects. Turn it on by clicking the edit icon on the right side of the Foos Header.
+
+## The Epf way
+
+Epf_skeleton is a practical complement to the existing epf documentation. It primarily shows:
+* how simple and solid epf makes handling parent/child relationships
 * how simple and solid epf makes handling parent/child relationships
 * how to use and when to call session vs child session
 * how to use child sessions in new and edit situations
@@ -17,7 +24,9 @@ See [epf](https://github.com/GroupTalent/epf) for more info.
 * how clean (almost boilerplate) server controllers can be using epf
 * how to load an array of models and update a list using epf
 
-(epf_skeleton) also illustrates other useful ember techniques such as:
+## Other useful techniques
+
+Epf_skeleton also illustrates other useful ember techniques such as:
 * how to toggle editing properties to offer an easy edit mode
 * a simple selection highlighting technique for lists
 * how to use outlets for in place editing
@@ -26,6 +35,21 @@ See [epf](https://github.com/GroupTalent/epf) for more info.
 * how to use ember views to encapsulate list elements
 * using bootstrap grid to organize an app and its outlets
 * shared template usage for new and edit fields
+
+## Gotchas For ember-data converters
+* The store.coffee file has been removed because it isn't needed by Epf
+* There is no rollback function - the same functionality is provided by child sessions
+
+### Note that in the foos_route.coffee file epf uses
+```
+  @session.query App.Foo
+```
+### instead of the ember-data method:
+```
+  App.Foo.find()
+```
+
+
 
 
 
