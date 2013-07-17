@@ -1,16 +1,9 @@
 App.FooIndexController = Ember.ObjectController.extend
   needs: ['foos']
 
-
-  # TODO: move this to the bars template
-  delete_bar: (bar) ->
-    alert 'delete bar'
-#    console.log "deleting a record  in foo index: bar:#{bar.get('name')}"
-#    foo = @get('content')
-#    console.log "foo in delete of bar: #{foo}"
-#    transaction = bar.get('transaction')
-#    bar.deleteRecord()
-#    transaction.commit()
-#    @transitionToRoute "foo.index", foo
-
-
+  deleteBar: (bar) ->
+    name = bar.get('name')
+    if window.confirm("Are you sure you want to delete foo: #{name}?")
+      @session.deleteModel bar
+      @session.flush()
+      @transitionToRoute "foo.index"
