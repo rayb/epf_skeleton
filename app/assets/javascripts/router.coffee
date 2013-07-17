@@ -9,7 +9,7 @@ App.Router.map ->
       @route 'index'
       @route 'edit'
       @resource 'bars', path: 'bars', ->
-#        @route 'new',
+        @route 'new',
         @resource 'bar', path: ':bar_id', ->
           @route 'index'
 
