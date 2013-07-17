@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: epf_skeleton_development
+  pool: 5
+  username: postgres
+  password: password
+  host: localhost

@@ -11,7 +11,6 @@ capybara-*.html
 /db/test*
 /public/system/*
 /config/application.yml
-/config/database.yml
 /coverage/
 /spec/tmp/*
 **.orig
