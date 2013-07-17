@@ -8,7 +8,5 @@ class Foo < ActiveRecord::Base
                   :power,
                   :foo,
                   :foo_id
-									#:bars,
-									#:bars_attributes
   attr_accessor :client_id
 end

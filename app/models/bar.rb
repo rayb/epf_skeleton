@@ -4,7 +4,6 @@ class Bar < ActiveRecord::Base
                   :foo_id,
                   :name,
                   :bar_date,
-                  #:is_happy,
                   :foo,
                   :bars,
                   :bars_attributes

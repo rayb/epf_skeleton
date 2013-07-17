@@ -3,20 +3,12 @@
       respond_to :json
 
       def index
-        respond_to do |format|
-          format.json do
-            if params[:search]
-              puts "params: #{params[:search]}"
-              render json: Foo.where("last_name ilike '#{params[:search]}'").limit(10), each_serializer: FooSerializer
-            else
-              render json: Foo.limit(10), 
-                each_serializer: FooSerializer
-            end
-          end
-          format.html do
-            puts "in foos index"
-            @foos_active = true
-          end
+        if params[:search]
+          puts "params: #{params[:search]}"
+          render json: Foo.where("last_name ilike '#{params[:search]}'").limit(10), each_serializer: FooSerializer
+        else
+          render json: Foo.limit(10),
+            each_serializer: FooSerializer
         end
       end
 
@@ -46,7 +38,6 @@
         if params[:search]
           puts "params in contacts names: #{params[:search]}"
           render json: Foo.select(:last_name).where("name ilike '%#{params[:search]}%'"), each_serializer: FooNameSerializer
-          #render json: SbSub.search(:search), each_serializer: SubjectNameSerializer
         else
           render json: Foo.select(:name), each_serializer: FooNameSerializer
         end

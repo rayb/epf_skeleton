@@ -7,11 +7,6 @@ class BarsController < ApplicationController
     render json: @bar, serializer: BarSerializer
   end
 
-  #def index
-  #  puts "bar controller index #{params[:ids]}"
-  #  respond_with Bar.where(:id => params[:ids]).first(10)   # or all
-  #end
-
   def index
     render json: Bar.limit(10),
            each_serializer: BarSerializer

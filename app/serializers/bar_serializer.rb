@@ -3,7 +3,6 @@ class BarSerializer < ActiveModel::Serializer
   attributes :id,
               :name,
               :bar_date,
-              #:is_happy,
               :foo_id,
               :client_id
 
