@@ -3,7 +3,7 @@ class Bar < ActiveRecord::Base
   attr_accessible :id,
                   :foo_id,
                   :name,
-                  #:sent_at,
+                  :bar_date,
                   #:is_happy,
                   :foo,
                   :bars,
