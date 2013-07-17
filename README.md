@@ -6,7 +6,7 @@ Epf is a functional alternative to [ember-data](https://github.com/emberjs/data)
 
 Epf's greatest strength is robustness. It provides a truly viable data foundation for building real world inter-related model applications and it offers a relatively easy migration path for applications currently using ember-data.
 
-See [ember-data](https://github.com/GroupTalent/epf) for more info.
+See [epf](https://github.com/GroupTalent/epf) for more info.
 
 (epf_skeleton) is a practical complement to the existing epf documentation. It primarily shows:
 * how simple and solid epf makes handling parent/child relationships
