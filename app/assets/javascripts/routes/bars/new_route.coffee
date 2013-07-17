@@ -6,9 +6,6 @@ App.BarsNewRoute = Ember.Route.extend
     childSession = @session.newSession()
     childSession.add(App.Bar.create(foo: foo))
 
-   #@session.create App.Bar(foo: @modelFor('foo'))
-
-
 #  OPTIONAL - EDIT A BAR IN PLACE
 #  renderTemplate: ->
 #    console.log "about to render bars.new"
