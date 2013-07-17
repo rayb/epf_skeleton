@@ -9,7 +9,7 @@ App.BarsNewController = Ember.ObjectController.extend
 #    @transitionToRoute "foo.index"
 
   save: ->
-#    @get('model').set('bar_date', new Date($("#datepicker").val()))
+    @get('model').set('bar_date', new Date($("#datepicker").val()))
     @session.flush()
     @transitionToRoute "foo.index"
 #      bar = controller.get('content')

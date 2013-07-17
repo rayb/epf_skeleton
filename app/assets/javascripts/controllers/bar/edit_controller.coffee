@@ -2,8 +2,8 @@ App.BarEditController = Ember.ObjectController.extend
 
   save: ->
     model = @get('model')
-#    sent_at = new Date($("#datepicker").val())
-#    model.set('sent_at', sent_at)
+    bar_date = new Date($("#datepicker").val())
+    model.set('bar_date', bar_date)
     @session.flush()
     # CAN WE USE THE CALLBACK METHOD
     @transitionToRoute "bar.index",  model
