@@ -1,10 +1,12 @@
 App.BarsNewRoute = Ember.Route.extend
-#  needs: ['fooIndex']
 
   model: ->
     console.log "getting model for bars.new"
     foo = @modelFor('foo')
-    @session.merge App.Bar.create(foo: foo)
+    childSession = @session.newSession()
+    childSession.add(App.Bar.create(foo: foo))
+
+   #@session.create App.Bar(foo: @modelFor('foo'))
 
 
 #  OPTIONAL - EDIT A BAR IN PLACE
@@ -17,9 +19,6 @@ App.BarsNewRoute = Ember.Route.extend
 #      @render "bars.new", into: "foo.index" unless controllers.foos.isInPlace
 #    end
 
-#  deactivate: ->
-#    model = @currentModel
-#    model.get("transaction").rollback()  unless model.get("isSaving")
 
 
 
