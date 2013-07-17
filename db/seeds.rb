@@ -8,8 +8,8 @@
 dan = Foo.find_or_create_by_name_and_age_and_power("dan", 42, 'thunder')
 ray = Foo.find_or_create_by_name_and_age_and_power("ray", 13, 'lightning')
 
-bar1 = Bar.find_or_create_by_foo_id_and_name(dan.id, "dan_bar_1")
-bar2 = Bar.find_or_create_by_foo_id_and_name(dan.id, "dan_bar_2")
-bar3 = Bar.find_or_create_by_foo_id_and_name(dan.id, "dan_bar_3")
-bar4 = Bar.find_or_create_by_foo_id_and_name(ray.id, "ray_bar_1")
-bar5 = Bar.find_or_create_by_foo_id_and_name(ray.id, "ray_bar_2")
+bar1 = Bar.find_or_create_by_foo_id_and_name_and_bar_date(dan.id, "dan_bar_1", "2013-04-12")
+bar2 = Bar.find_or_create_by_foo_id_and_name_and_bar_date(dan.id, "dan_bar_2", "2012-03-15")
+bar3 = Bar.find_or_create_by_foo_id_and_name_and_bar_date(dan.id, "dan_bar_3", "2011-05-25")
+bar4 = Bar.find_or_create_by_foo_id_and_name_and_bar_date(ray.id, "ray_bar_1", "2046-11-23")
+bar5 = Bar.find_or_create_by_foo_id_and_name_and_bar_date(ray.id, "ray_bar_2", "4362-12-24")
