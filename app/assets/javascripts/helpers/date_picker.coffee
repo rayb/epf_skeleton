@@ -11,7 +11,7 @@ App.DatePicker = Ember.View.extend
       date.format @get("format")
     else
       ""
-  ).property("sent_at")
+  ).property("bar_date")
 
   didInsertElement: ->
     self = this
