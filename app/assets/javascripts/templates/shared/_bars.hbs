@@ -1,0 +1,19 @@
+<div class="row-fluid">
+  <div class="span6">
+    <legend>Bars</legend>
+
+    <div class="row-fluid">
+      <ul class="nav nav-pills nav-stacked">
+        {{#each bar in bars}}
+          {{view App.BarInListView contentBinding="bar"}}
+        {{/each}}
+      </ul>
+    </div>
+
+    {{#linkTo "bars.new" class="btn btn-mini"}}New Bar{{/linkTo}}
+  </div>
+  <div class="span6">
+    {{ outlet }}
+  </div>
+</div>
+

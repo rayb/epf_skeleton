@@ -11,8 +11,7 @@ App.FoosNewController = Ember.ObjectController.extend
   cancel: ->
     @transitionToRoute "foos"
 
-
-# QUESTION FOR GORDON
+# QUESTION
 #      @childSession.flush().then ((foo) ->
 #        # this will be reached if the flush is successful
 #        # why will alert work to show object, but get id is undefined

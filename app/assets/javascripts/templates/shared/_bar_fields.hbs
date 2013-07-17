@@ -1,0 +1,10 @@
+  <div class="row-fluid">
+    <div class="span4">Name:</div>
+    <div class="span8">{{input value = name}}</div>
+  </div>
+  <div class="row-fluid">
+    <div class="span4">Bar Date:</div>
+    <div class="span8">{{view App.DatePicker valueBinding="bar_date" id='datepicker' data-date-format='yyyy-mm-dd'}}</div>
+  </div>
+<button {{action save}} class="btn btn-primary btn-mini">Save</button>
+<button {{action cancel}} class="btn btn-danger btn-mini">Cancel</button>

@@ -1,7 +1,14 @@
 class Foo < ActiveRecord::Base
-  #has_many :bars, autosave: true, dependent: :destroy
-  attr_accessible :is_happy, :name, :age,  :power, :id  									#:bars,
+  has_many :bars, autosave: true, dependent: :destroy
+  attr_accessible :id,
+                  :foo_date,
+                  :is_happy,
+                  :name,
+                  :age,
+                  :power,
+                  :foo,
+                  :foo_id
+									#:bars,
 									#:bars_attributes
-      #:foo_date
   attr_accessor :client_id
 end

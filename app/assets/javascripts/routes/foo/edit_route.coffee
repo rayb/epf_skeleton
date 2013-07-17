@@ -3,7 +3,8 @@ App.FooEditRoute = Ember.Route.extend
   model: ->
     @modelFor "foo"
 
-#alternative way
+    # alternative way
+# TODO: Question: why doesn't it work with Ember-1.0.0.rc.6?
 #  afterModel: (model, transition) ->
 #    childSession = @session.newSession()
 #    childModel = childSession.add(model)
@@ -14,14 +15,7 @@ App.FooEditRoute = Ember.Route.extend
     childModel = childSession.add(model)
     controller.set('model', childModel)
 
-
-#  deactivate: ->
-##    alert 'we are in deactivate on foo edit route'
-#    fooEdit = @controllerFor('fooEdit')
-#    fooEdit.stopEditing()
-#    model = @currentModel
-#    model.get("transaction").rollback()  unless model.get("isSaving")
-
+# probably take this out
 #  renderTemplate: ->
 #    @render "foo.edit"
 #      outlet: "main"

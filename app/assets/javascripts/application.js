@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment
 //= require handlebars
 //= require ember
 //= require epf
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require_self
 //= require_tree .
 
