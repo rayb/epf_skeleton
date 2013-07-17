@@ -7,5 +7,4 @@ class FooSerializer < ActiveModel::Serializer
               :power,
               :client_id,
               :is_happy
-              #:foo_date
 end
