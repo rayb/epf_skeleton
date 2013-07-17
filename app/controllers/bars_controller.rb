@@ -3,13 +3,11 @@ class BarsController < ApplicationController
   respond_to :json
 
   def show
-    @bar = Bar.find(params[:id])
-    render json: @bar, serializer: BarSerializer
+    render json: Bar.find(params[:id]), serializer: BarSerializer
   end
 
   def index
-    render json: Bar.limit(10),
-           each_serializer: BarSerializer
+    render json: Bar.limit(10), each_serializer: BarSerializer
   end
 
   def create

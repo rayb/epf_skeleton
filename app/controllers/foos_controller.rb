@@ -3,18 +3,11 @@
       respond_to :json
 
       def index
-        if params[:search]
-          puts "params: #{params[:search]}"
-          render json: Foo.where("last_name ilike '#{params[:search]}'").limit(10), each_serializer: FooSerializer
-        else
-          render json: Foo.limit(10),
-            each_serializer: FooSerializer
-        end
+          render json: Foo.limit(10), each_serializer: FooSerializer
       end
 
       def show
-        @foo = Foo.find(params[:id])
-        render json: @foo, serializer: FooSerializer
+        render json: Foo.find(params[:id]), serializer: FooSerializer
       end
 
       def create
@@ -23,7 +16,6 @@
         foo =  Foo.create(input)
         foo.client_id = client_id
         respond_with foo
-        #respond_with foo, :location => api_foo_path(foo)
       end
 
       def update
@@ -34,12 +26,4 @@
         respond_with Foo.destroy(params[:id])
       end
 
-      def names
-        if params[:search]
-          puts "params in contacts names: #{params[:search]}"
-          render json: Foo.select(:last_name).where("name ilike '%#{params[:search]}%'"), each_serializer: FooNameSerializer
-        else
-          render json: Foo.select(:name), each_serializer: FooNameSerializer
-        end
-      end
   end
