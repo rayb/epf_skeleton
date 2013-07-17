@@ -4,7 +4,7 @@ App.FooEditRoute = Ember.Route.extend
     @modelFor "foo"
 
     # alternative way
-# TODO: Question for Gordon: why doesn't it work with Ember-1.0.0.rc.6?
+# TODO: Question: why doesn't it work with Ember-1.0.0.rc.6?
 #  afterModel: (model, transition) ->
 #    childSession = @session.newSession()
 #    childModel = childSession.add(model)
