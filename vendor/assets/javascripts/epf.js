@@ -1922,7 +1922,6 @@
                 this._super.apply(this, arguments);
                 this._embeddedManager = Ep.EmbeddedManager.create({ adapter: this });
                 this._pendingOps = {};
-                this.namespace = "api";
             },
             load: function (type, id) {
                 var root = this.rootForType(type), adapter = this;
