@@ -1,4 +1,5 @@
 App.BarsNewController = Ember.ObjectController.extend
+
   needs: ['fooIndex']
 
   init: ->
