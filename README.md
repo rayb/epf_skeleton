@@ -4,11 +4,11 @@
 
 Epf is a functional alternative to [ember-data](https://github.com/emberjs/data) and is used in production at [GroupTalent](https://grouptalent.com) with dozens of inter-related models. It's greatest strength is robustness. It provides a truly viable data foundation for building real world inter-related model applications and it offers a relatively easy migration path for applications currently using ember-data. See [epf](https://github.com/GroupTalent/epf) for more info.
 
-## Getting Started
+## Using the App
 
-By default edit mode is turned off and you can only add new objects. Turn it on by clicking the edit icon on the right side of the Foos Header.
+By default edit mode is turned off and you can only add new foos and bars. To enable editing of them toggle the edit icon on the right side of the Foos Header.
 
-### The Epf way
+## The Epf way
 
 **epf_skeleton** is a practical complement to the existing epf documentation. It primarily shows:
 * how simple and solid epf makes handling parent/child relationships
@@ -19,7 +19,7 @@ By default edit mode is turned off and you can only add new objects. Turn it on 
 * how clean server controllers can be using epf
 * how to load an array of models and update a list using epf
 
-### Other useful ember technique examples
+## Other useful ember technique examples
 
 * a simple toggling edit mode  (foos.hbs, foo_in_list.hbs )
 * one list selection highlighting technique (FoosController, FooIndexRoute)
@@ -34,7 +34,7 @@ By default edit mode is turned off and you can only add new objects. Turn it on 
 * using bootstrap grid to organize app layout with nested elements
 * a file naming organizing structure to support an expandable app
 
-## Gotchas For ember-data converters
+## Gotchas for ember-data converters
 * The store.coffee file has been removed because it isn't needed by Epf
 * There is no rollback function - the same functionality is provided by child sessions
 * List functions that don't refer to inter-related models need an explicit pushObject
