@@ -1,6 +1,6 @@
 # epf_skeleton
 
-(epf_skeleton) is a simple nested parent/child client/server CRUD example illustrating best practice usage of epf as a replacement for ember-data. It has equivalent functionality to the ember_data_example github project, so it can serve as a side by side comparison of the epf-way vs the ember-data way.
+**epf_skeleton** is a simple nested parent/child client/server CRUD example illustrating best practice usage of epf as a replacement for ember-data. It has equivalent functionality to the ember_data_example github project, so it can serve as a side by side comparison of the epf-way vs the ember-data way.
 
 Epf is a functional alternative to [ember-data](https://github.com/emberjs/data) and is used in production at [GroupTalent](https://grouptalent.com) with dozens of inter-related models.
 
@@ -12,10 +12,9 @@ See [epf](https://github.com/GroupTalent/epf) for more info.
 
 By default edit mode is turned off and you can only add new objects. Turn it on by clicking the edit icon on the right side of the Foos Header.
 
-## The Epf way
+### The Epf way
 
-Epf_skeleton is a practical complement to the existing epf documentation. It primarily shows:
-* how simple and solid epf makes handling parent/child relationships
+**epf_skeleton** is a practical complement to the existing epf documentation. It primarily shows:
 * how simple and solid epf makes handling parent/child relationships
 * how to use and when to call session vs child session
 * how to use child sessions in new and edit situations
@@ -24,27 +23,32 @@ Epf_skeleton is a practical complement to the existing epf documentation. It pri
 * how clean (almost boilerplate) server controllers can be using epf
 * how to load an array of models and update a list using epf
 
-## Other useful techniques
+### Other useful ember technique examples
 
-Epf_skeleton also illustrates other useful ember techniques such as:
-* how to toggle editing properties to offer an easy edit mode
-* a simple selection highlighting technique for lists
-* how to use outlets for in place editing
-* how to integrate a bootstrap date picker and formatting for dates
-* a practical way to organize/name files to support a growing app
-* how to use ember views to encapsulate list elements
-* using bootstrap grid to organize an app and its outlets
-* shared template usage for new and edit fields
+* a simple toggling edit mode  (foos.hbs, foo_in_list.hbs )
+* one list selection highlighting technique (FoosController, FooIndexRoute)
+* integrating a bootstrap date picker (BarsNewController)
+* simple property based date formatting (foo.coffee)
+* using ember views to encapsulate a group of list elements (FooInListView, foo_in_list.hbs)
+* using renderTemplate to explicitly place an template (BarIndexRoute)
+* shared template usage for new and edit fields  (foo.index.hbs)
+* setting a temp variable to use after 'then' call (FoosNewController)
+* using needs: to access data another controller (FoosNewController)
+* using outlets for in-place editing
+* using bootstrap grid to organize app layout with nested elements
+* a file naming organizing structure to support an expandable app
 
 ## Gotchas For ember-data converters
 * The store.coffee file has been removed because it isn't needed by Epf
 * There is no rollback function - the same functionality is provided by child sessions
+* List functions that don't refer to inter-related models need an explicit pushObject
+* Instead of ember-data's find command you can use @session.query
 
-### Note that in the foos_route.coffee file epf uses
+#### For example: Epf uses:
 ```
   @session.query App.Foo
 ```
-### instead of the ember-data method:
+#### while ember-data uses:
 ```
   App.Foo.find()
 ```
