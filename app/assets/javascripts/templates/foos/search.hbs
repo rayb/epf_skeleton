@@ -1,0 +1,8 @@
+<form {{action submit view on="submit" }} >
+  <div class="row-fluid">
+    <div class="span12">
+      {{view Ember.TextFieldTypeahead class="foo_finder search_form"
+      valueBinding="view.search_term" placeholder="Search..." data-provide="typeahead" data-items="4"}}
+    </div>
+  </div>
+</form>

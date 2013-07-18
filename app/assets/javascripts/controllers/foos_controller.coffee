@@ -12,3 +12,5 @@ App.FoosController = Ember.ArrayController.extend
       @session.flush()
       @transitionToRoute "foo.index"
 
+  submit: (view) ->
+    @set('content', App.Foo.find({search: "#{view.search_term}"}))

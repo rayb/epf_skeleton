@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require moment
 //= require handlebars
+//= require underscore
 //= require ember
 //= require epf
 //= require bootstrap

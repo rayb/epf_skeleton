@@ -3,8 +3,26 @@
       respond_to :json
 
       def index
-          render json: Foo.limit(10), each_serializer: FooSerializer
+        respond_to do |format|
+          format.json do
+            if params[:search]
+              puts "params: #{params[:search]}"
+              render json: Foo.where("name ilike '#{params[:search]}'").limit(10)
+            else
+              render json: Foo.limit(10)
+            end
+          end
+          format.html do
+            puts "in foos index"
+            @foos_active = true
+          end
+        end
       end
+      #
+      #
+      #def index
+      #    render json: Foo.limit(10), each_serializer: FooSerializer
+      #end
 
       def show
         render json: Foo.find(params[:id]), serializer: FooSerializer
@@ -24,6 +42,15 @@
 
       def destroy
         respond_with Foo.destroy(params[:id])
+      end
+
+      def names
+        if params[:search]
+          puts "params in contacts names: #{params[:search]}"
+          render json: Foo.select(:name).where("name ilike '%#{params[:search]}%'"), each_serializer: FooNameSerializer
+        else
+          render json: Foo.select(:name), each_serializer: FooNameSerializer
+        end
       end
 
   end

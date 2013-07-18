@@ -3,7 +3,7 @@
     <legend>Foos
         <button {{action toggleProperty 'is_editing' }} class="btn btn-action btn-mini right_button"><i class="icon-edit"></i></button>
     </legend>
-
+    <legend> {{ view App.SearchView }} </legend>
     <ul class="nav nav-pills nav-stacked">
       {{#each foo in content}}
         {{view App.FooInListView contentBinding="foo"}}
