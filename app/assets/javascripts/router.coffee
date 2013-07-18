@@ -3,7 +3,7 @@ App.Router.reopen
   rootURL: '/'
 
 App.Router.map ->
-  @resource 'foos', path: '/', ->
+  @resource 'foos', path: '/api/', ->
     @route 'new',
     @resource 'foo', path: ':foo_id', ->
       @route 'index'

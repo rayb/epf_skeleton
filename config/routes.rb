@@ -1,7 +1,16 @@
+require 'api_constraints'
+
 EpfSkeleton::Application.routes.draw do
 
   root :to => 'application#index'
-  resources :foos
-  resources :bars
+
+  namespace :api, defaults: {format: "json"} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+
+      resources :foos
+      resources :bars
+
+    end
+  end
 
 end
